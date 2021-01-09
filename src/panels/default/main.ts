@@ -43,6 +43,7 @@ export const $ = { app: "#app" };
  * @zh 面板启动后触发的钩子函数
  */
 export const ready = function(this:any) {
+    // @ts-ignore
     createApp(App).use(store).mount(this.$.app);
 };
 
