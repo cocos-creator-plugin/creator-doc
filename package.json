@@ -1,32 +1,23 @@
 {
-  "name": "cocos-vue3-vex-rollup-template",
+  "name": "creator-doc",
   "package_version": 2,
   "version": "1.0.0",
-  "description": "an extension template for cocos3.0,which use rollup+vue3+typescript",
+  "description": "creator-doc",
   "main": "dist/main.js",
   "panels": {
     "default": {
-      "title": "Vue3 Vex Rollup",
+      "title": "creator-doc",
       "type": "dockable",
+      "name": "21222",
       "main": "dist/panels/default/main.js"
-    },
-    "panel1": {
-      "title": "Vue3 Vex Rollup",
-      "type": "simple",
-      "main": "dist/panels/panel1/main.js"
     }
   },
   "contributions": {
     "menu": [
       {
-        "path": "extensions/vue3-vex-rollup",
-        "label": "open Cocos Rollup Vue3 Panel",
+        "path": "creator助手",
+        "label": "打开",
         "message": "open-panel"
-      },
-      {
-        "path": "extensions/vue3-vex-rollup",
-        "label": "open Cocos Rollup Vue3 Panel1",
-        "message": "open-panel1"
       }
     ],
     "messages": {
@@ -34,22 +25,18 @@
         "methods": [
           "open_panel"
         ]
-      },
-      "open-panel1": {
-        "methods": [
-          "open_panel1"
-        ]
       }
     }
   },
   "scripts": {
-    "build": "rollup -c ./rollup.config.js",
-    "watch": "rollup -c ./rollup.config.js -w --configDebug"
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js -w --configDebug"
   },
   "keywords": [],
   "author": "Cocos Creator",
   "license": "MIT",
   "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "vue": "^3.0.0",
     "vuex": "^4.0.0-rc.2"
   },

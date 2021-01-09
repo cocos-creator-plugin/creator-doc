@@ -9,6 +9,7 @@ import copy from 'rollup-plugin-copy';
 import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import { getInputs } from './build-utils/rollup-config-utils';
+import json from '@rollup/plugin-json';
 
 const debugConfig = {
     input: getInputs(),
@@ -19,8 +20,10 @@ const debugConfig = {
     },
     plugins: [
         VuePlugin({
-            compilerOptions:{
-                isCustomElement:tags => tags.startsWith('ui-'),
+            compilerOptions: {
+                isCustomElement: tags => {
+                    return ['webview'].find(el => el === tags) || tags.startsWith('ui-');
+                },
             },
             defaultLang: { script: 'ts' },
         }),
@@ -28,6 +31,7 @@ const debugConfig = {
             tsconfig: path.resolve('tsconfig.json'),
         }),
         NodeResolve(),
+        json(),
         commonjs(),
         postcss({
             extract: path.resolve('dist/panels/css/all.css'),
@@ -38,8 +42,8 @@ const debugConfig = {
         }),
     ],
     /**
-     * 
-     * @param {*} id 
+     *
+     * @param {*} id
      * @en Declare external modules to avoid generating external module scripts in directories
      * @zh 声明外部模块，避免在目录生成外部模块脚本
      */
@@ -58,7 +62,9 @@ const releaseConfig = {
     plugins: [
         VuePlugin({
             compilerOptions: {
-                isCustomElement: tags => tags.startsWith('ui-'),
+                isCustomElement: tags => {
+                    return ['webview'].find(el => el === tags) || tags.startsWith('ui-');
+                },
             },
             defaultLang: { script: 'ts' },
         }),
@@ -76,7 +82,7 @@ const releaseConfig = {
             tsconfig: path.resolve(__dirname, 'tsconfig.json'),
         }),
         NodeResolve(),
-
+        json(),
         postcss({
             extract: path.resolve(__dirname, 'dist/panels/css/all.css'),
         }),
@@ -87,8 +93,8 @@ const releaseConfig = {
         terser(),
     ],
     /**
-     * 
-     * @param {*} id 
+     *
+     * @param {*} id
      * @en Declare external modules to avoid generating external module scripts in directories
      * @zh 声明外部模块，避免在目录生成外部模块脚本
      */

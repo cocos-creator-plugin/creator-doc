@@ -27,7 +27,7 @@ export const linsteners = {
 export const template = getTemplateFromHtml();
 
 /**
- * @en Style of the panel 
+ * @en Style of the panel
  * @zh 面板上的样式
  */
 export const style = getCSSFromVue();
@@ -47,7 +47,7 @@ export const ready = function(this:any) {
 };
 
 /**
- * @en The function that will be triggered when the panel is ready to close, and will terminate 
+ * @en The function that will be triggered when the panel is ready to close, and will terminate
  * the closing of the panel if it returns false
  * @zh 面板准备关闭的时候会触发的函数，return false 的话，会终止关闭面板
  */
