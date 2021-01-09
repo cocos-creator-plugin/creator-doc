@@ -10,6 +10,7 @@ import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
 import { getInputs } from './build-utils/rollup-config-utils';
 import json from '@rollup/plugin-json';
+import clear from 'rollup-plugin-clear';
 
 const debugConfig = {
     input: getInputs(),
@@ -19,6 +20,9 @@ const debugConfig = {
         globals: { vue: 'Vue' },
     },
     plugins: [
+        clear({
+            targets: [path.resolve(__dirname, 'dist')],
+        }),
         VuePlugin({
             compilerOptions: {
                 isCustomElement: tags => {
