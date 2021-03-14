@@ -16,8 +16,8 @@
   "contributions": {
     "menu": [
       {
-        "path": "creator助手",
-        "label": "打开",
+        "path": "小王子",
+        "label": "creator助手",
         "message": "open-panel"
       }
     ],
