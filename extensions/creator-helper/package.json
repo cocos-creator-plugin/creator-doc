@@ -27,6 +27,13 @@
           "open_panel"
         ]
       }
-    }
+    },
+    "shortcuts": [
+      {
+        "message": "open-panel",
+        "win": "shift+h",
+        "mac": "shift+h"
+      }
+    ]
   }
 }
