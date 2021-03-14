@@ -1,15 +1,15 @@
 {
-  "name": "creator-doc",
+  "name": "creator-helper",
   "author": "xu_yanfeng",
   "package_version": 2,
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "creator-doc",
   "main": "src/main.js",
   "panels": {
     "default": {
-      "title": "creator-doc",
+      "title": "小助手",
       "type": "dockable",
-      "name": "21222",
+      "name": "小助手",
       "main": "src/panels/default/index.js"
     }
   },
